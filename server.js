@@ -7,6 +7,9 @@ dotenv.config();
 
 const server = express();
 
-server.get('/recipes', getAllRecipes)
+server.use(cors());
+server.use(express.json());
+
+server.get('/recipes', getAllRecipes);
 
 server.listen(process.env.PORT, () => console.log(`server on ${process.env.PORT}`));
